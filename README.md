@@ -1,17 +1,3 @@
-[1.4: course information step4](https://fullstackopen.com/en/part1/java_script#exercises-1-3-1-5)
+[1.5: course information step5](https://fullstackopen.com/en/part1/java_script#exercises-1-3-1-5)
 
-NB на этом этапе вы можете предположить, что всегда есть три элемента , поэтому нет необходимости проходить массивы с помощью циклов. Мы вернемся к теме рендеринга компонентов на основе элементов в массивах с более тщательным изучением в следующей части курса .
-
-Однако не передавайте разные объекты как отдельные реквизиты из компонента App компонентам Content и Total . Вместо этого передайте их напрямую в виде массива:
-```const App = () => {
-  // const definitions
-
-  return (
-    <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
-    </div>
-  )
-}
-```
+### Превратите курс и его части в один объект JavaScript
