@@ -1,58 +1,33 @@
-const Header = (props) => {
-  console.log(props.course);
-  return (
-    <>
-      <p>{props.course}</p>
-    </>
-  );
-};
-const Part = ({ parts }) => {
-  return (
-    <>
-      <ol>
-        {" "}
-        {parts.map((i) => (
-          <li>{i.name}</li>
-        ))}
-      </ol>
-    </>
-  );
-};
-const Content = ({ parts }) => {
-  return (
-    <>
-      <Part parts={parts} />
-    </>
-  );
-};
-const Total = ({ parts }) => {
-  return (
-    <>{Object.values(parts).reduce((acc, val) => acc + val.exercises, 0)}</>
-  );
-};
+import { useState } from "react";
+import "./style.css";
+const Display = ({ counter }) => <div>{counter}</div>;
+
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
+
 const App = () => {
-  const course = {
-    name: "Half Stack application development",
-    parts: [
-      {
-        name: "Fundamentals of React",
-        exercises: 10,
-      },
-      {
-        name: "Using props to pass data",
-        exercises: 7,
-      },
-      {
-        name: "State of a component",
-        exercises: 14,
-      },
-    ],
+  const [counter, setCounter] = useState(0);
+  console.log("rendering with counter value", counter);
+  const increaseOne = () => {
+    console.log("increasing, value before", counter);
+    setCounter(counter + 1);
+  };
+  const decreaseOne = () => {
+    console.log("decreasing, value before", counter);
+    setCounter(counter - 1);
+  };
+  const reset = () => {
+    console.log("resetting to zero, value before", counter);
+    setCounter(0);
   };
   return (
     <div>
-      <Header course={course.name} />
-      <Content parts={course.parts} />
-      <Total parts={course.parts} />
+      <div className="count">
+        <Display counter={counter} />
+      </div>
+      <br />
+      <Button onClick={increaseOne} text="plus" />
+      <Button onClick={decreaseOne} text="minus" />
+      <Button onClick={reset} text="zero" />
     </div>
   );
 };

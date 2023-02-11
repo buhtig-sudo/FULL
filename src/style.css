@@ -1,0 +1,17 @@
+body {
+  color: rgb(255, 255, 255);
+  background: linear-gradient(
+    rgb(122, 74, 14),
+    rgb(245, 62, 113),
+    rgb(162, 27, 27)
+  );
+  box-shadow: 0 0 20px 0 rgba(83, 14, 14, 0.8);
+}
+button {
+  display: block;
+  margin: auto;
+  margin-bottom: 1px;
+}
+.count {
+  margin-left: 50%;
+}
