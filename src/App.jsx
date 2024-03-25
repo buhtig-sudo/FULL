@@ -1,19 +1,23 @@
 import { useState } from 'react';
 
-const Header = (props) => {
+const Part = (props) => {
   return (
     <>
-      <h1>Course {props.course}</h1>
+      <p>{props.part} {props.exercises}</p>
     </>
   );
 };
 const Content = (props) => {
   return (
     <>
-     <p> {props.part} {props.excercises} </p>
+     <p> {course} </p>
+     <Part part={part1} exercises={exercises1}/>
+     <Part part={part2} exercises={exercises2}/>
+     <Part part={part3} exercises={exercises3}/>
     </>
   );
 };
+
 
 const App = () => {
   const course = 'Half Stack application development'
@@ -25,8 +29,8 @@ const App = () => {
   const exercises3 = 14
 
   return <>
-  <Header course={course} />
-  <Content part={part1} excercises={exercises1}/>
+
+  <Content />
   </>;
 };
 
