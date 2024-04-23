@@ -9,7 +9,15 @@ const History = ({ all }) => {
   return <h4>{all.join("")}</h4>
 
 }
-
+const Button = (props) => {
+  console.log(props)
+  const { handler, text } = props
+  return (
+    <button onClick={handler}>
+      {text}
+    </button>
+  )
+}
 const App = () => {
   const [left, setLeft] = useState(0);
   const [right, setRight] = useState(0);
@@ -27,16 +35,31 @@ const App = () => {
     setRight(updatedRight);
     setTotal(updatedRight + left);
   }
+  const handleClear = () => {
+    const clear = 0;
+    setAll([]);
+    setTotal(clear);
+    setRight(clear);
+    setLeft(clear);
 
+  }
+  const examleFuncInner = (text) => {
+    const returnFunc = () => console.log('Hello! A am inner function!!', text);
+    return returnFunc;
+  }
   console.log(typeof total)
   return (
     <>
       <div>
-        <button onClick={handleLeftClick}>click</button>{left} --- {right}<button onClick={handleRightClick}>click</button>
+        <Button handler={handleLeftClick} text="left" />
+        <Button handler={handleRightClick} text="right" />
+        <Button handler={handleClear} text="clear" />
       </div>
       <div>
         <History all={allClicks} />
         <h4>Total {total}</h4>
+
+        <Button handler={examleFuncInner("ho")} text="example" />
       </div>
     </>
   )
